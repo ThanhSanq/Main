@@ -1,13 +1,15 @@
 const express = require('express')
 const app = express()
-const port = 7000
+const env = require('dotenv')
+
+env.config()
+
+const port = process.env.PORT
 
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname+'/views/women1.html')
 })
-
-console.log(__dirname);
 
 app.listen(port, () => {
     console.log('server is running');
